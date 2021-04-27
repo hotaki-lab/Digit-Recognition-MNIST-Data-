@@ -2,7 +2,7 @@
 
 Using the following methods/algorithms for part-1 of this project:
 
-1. Llinear and Logistic Regression, 
+1. Linear and Logistic Regression, 
 2. Non-Linear Features, 
 3. Regularization, and 
 4. Kernel tricks. 
@@ -144,5 +144,17 @@ def one_vs_rest_svm(train_x, train_y, test_x):
     raise NotImplementedError
 ```
 
+# Binary Classification Error:
+
+Report the test error by running **run_svm_one_vs_rest_on_MNIST**.
+
+**Error = 0.007499999999999951**
+
+# Applying C-SVM:
+
+Play with the C parameter of SVM. The following statements are true about the C parameter:
+
+* **Larger C gives smaller tolerance of violation.**
+* **Larger C gives a smaller-margin separating hyperplane.**
 
 
