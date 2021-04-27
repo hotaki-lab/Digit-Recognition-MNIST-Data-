@@ -49,6 +49,17 @@ To get warmed up to the MNIST data set run python main.py. This file provides co
 
 Next, we call the function plot_images to display the first 20 images of the training set. Look at these images and get a feel for the data (don't include these in your write-up).
 
-Tip: Throughout the whole online grading system, you can assume the NumPy python library is already imported as np. In some problems you will also have access to python's random library, and other functions you've already implemented. Look out for the "Available Functions" Tip before the codebox, as you did in the last project.
+![alt text](https://github.com/hotaki-lab/Digit-Recognition-Neural-Network/blob/main/Figure_1.png "Displaying First 20 Images of Training Set")
 
-This project will unfold both on MITx and on your local machine. However, we encourage you to first implement the functions locally and run the test scripts to validate basic funcitonality. Think of the online graders as a submission box to submit your code when it is ready. You should not have to use the online graders to debug your code.
+[Introduction to ML Packages (Part-1)](https://github.com/Varal7/ml-tutorial/blob/master/Part1.ipynb)
+
+# Linear Regression with Closed Form Solution:
+
+It can be argued that we can apply a linear regression model, as the labels are numbers from 0-9. Though being a little doubtful, you decide to have a try and start simple by using the raw pixel values of each image as features.
+
+There is a skeleton code **run_linear_regression_on_MNIST in main.py**, but it needs more to complete the code and make the model work. The following will cover how to complete this code:
+
+To solve the linear regression problem, you recall the linear regression has a closed form solution:
+
+![alt text](https://github.com/hotaki-lab/Digit-Recognition-Neural-Network/blob/main/Linear%20Regression.JPG "Linear Regression")
+
