@@ -42,12 +42,11 @@ Important: The archive also contains files for the second part of the MNIST proj
 
 To get warmed up to the MNIST data set run python main.py. This file provides code that reads the data from mnist.pkl.gz by calling the function get_MNIST_data that is provided for you in utils.py. The call to get_MNIST_data returns Numpy arrays:
 
-train_x : A matrix of the training data. Each row of train_x contains the features of one image, which are simply the raw pixel values flattened out into a vector of length 784=282. The pixel values are float values between 0 and 1 (0 stands for black, 1 for white, and various shades of gray in-between).
+* train_x : A matrix of the training data. Each row of train_x contains the features of one image, which are simply the raw pixel values flattened out into a vector of length 784=282. The pixel values are float values between 0 and 1 (0 stands for black, 1 for white, and various shades of gray in-between).
+* train_y : The labels for each training datapoint, also known as the digit shown in the corresponding image (a number between 0-9).
+* test_x : A matrix of the test data, formatted like train_x.
+* test_y : The labels for the test data, which should only be used to evaluate the accuracy of different classifiers in your report.
 
-train_y : The labels for each training datapoint, also known as the digit shown in the corresponding image (a number between 0-9).
-test_x : A matrix of the test data, formatted like train_x.
-
-test_y : The labels for the test data, which should only be used to evaluate the accuracy of different classifiers in your report.
 Next, we call the function plot_images to display the first 20 images of the training set. Look at these images and get a feel for the data (don't include these in your write-up).
 
 Tip: Throughout the whole online grading system, you can assume the NumPy python library is already imported as np. In some problems you will also have access to python's random library, and other functions you've already implemented. Look out for the "Available Functions" Tip before the codebox, as you did in the last project.
