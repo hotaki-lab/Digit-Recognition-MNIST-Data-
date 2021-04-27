@@ -100,3 +100,10 @@ The test error of the linear regression algorithm for different λ (the output f
 * **Error (λ = 1) = 0.7697**
 * **Error (λ = 0.1) = 0.7698**
 * **Error (λ = 0.01) = 0.7702**
+
+# What went Wrong?
+
+**We found that no matter what λ factor we try, the test error is LARGE. With some thinking, we realize that something is wrong with this approach.**
+**The loss function related to the closed-form solution is inadequate for this problem.**
+
+
