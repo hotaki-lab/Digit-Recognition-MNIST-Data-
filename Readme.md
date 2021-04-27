@@ -63,3 +63,29 @@ To solve the linear regression problem, you recall the linear regression has a c
 
 ![alt text](https://github.com/hotaki-lab/Digit-Recognition-Neural-Network/blob/main/Linear%20Regression.JPG "Linear Regression")
 
+```python
+ 
+def closed_form(X, Y, lambda_factor):
+"""
+    Computes the closed form solution of linear regression with L2 regularization
+
+    Args:
+        X - (n, d + 1) NumPy array (n datapoints each with d features plus the bias feature in the first dimension)
+        Y - (n, ) NumPy array containing the labels (a number from 0-9) for each
+            data point
+        lambda_factor - the regularization constant (scalar)
+    Returns:
+        theta - (d + 1, ) NumPy array containing the weights of linear regression. Note that theta[0]
+        represents the y-axis intercept of the model and therefore X[0] = 1
+"""
+    xt = X.transpose()
+    xtx = xt @ X
+    id = np.eye(xtx.shape[0])
+    lam_id = lambda_factor * id
+    inner = (xtx + lam_id)
+    inner_inv = np.linalg.inv(inner)
+    outer = xt @ Y
+    theta = (inner_inv) @ (outer)
+    return theta
+    raise NotImplementedError
+```
