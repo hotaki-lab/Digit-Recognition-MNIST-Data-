@@ -25,12 +25,19 @@ Download mnist.tar.gz and untar it into a working directory. Use the following G
 
 The archive contains the various data files in the Dataset directory, along with the following python files:
 
-part1/linear_regression.py where you will implement linear regression
-part1/svm.py where you will implement support vector machine
-part1/softmax.py where you will implement multinomial regression
-part1/features.py where you will implement principal component analysis (PCA) dimensionality reduction
-part1/kernel.py where you will implement polynomial and Gaussian RBF kernels
-part1/main.py where you will use the code you write for this part of the project
+* part1/linear_regression.py 
+  * where you will implement linear regression
+* part1/svm.py 
+  * where you will implement support vector machine
+* part1/softmax.py 
+  * where you will implement multinomial regression
+* part1/features.py 
+  * where you will implement principal component analysis (PCA) dimensionality reduction
+* part1/kernel.py 
+  * where you will implement polynomial and Gaussian RBF kernels
+* part1/main.py 
+  * where you will use the code you write for this part of the project
+
 Important: The archive also contains files for the second part of the MNIST project. For this project, you will only work with the part1 folder.
 
 To get warmed up to the MNIST data set run python main.py. This file provides code that reads the data from mnist.pkl.gz by calling the function get_MNIST_data that is provided for you in utils.py. The call to get_MNIST_data returns Numpy arrays:
