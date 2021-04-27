@@ -157,4 +157,55 @@ Play with the C parameter of SVM. The following statements are true about the C 
 * **Larger C gives smaller tolerance of violation.**
 * **Larger C gives a smaller-margin separating hyperplane.**
 
+# Applying Multiclass SVM:
+
+In fact, **sklearn** already implements a **multiclass SVM** with a one-vs-rest strategy. Use **LinearSVC** to build a multiclass SVM model:
+
+```python
+import sklearn
+
+def multi_class_svm(train_x, train_y, test_x):   
+"""
+    Trains a linear SVM for multiclass classifciation using a one-vs-rest strategy
+
+    Args:
+        train_x - (n, d) NumPy array (n datapoints each with d features)
+        train_y - (n, ) NumPy array containing the labels (int) for each training data point
+        test_x - (m, d) NumPy array (m datapoints each with d features)
+    Returns:
+        pred_test_y - (m,) NumPy array containing the labels (int) for each test data point
+"""
+    clf = sklearn.svm.LinearSVC(C=0.1 ,random_state=0)
+    clf.fit(train_x, train_y)
+    pred_test_y = clf.predict(test_x)
+    return pred_test_y
+    
+    raise NotImplementedError
+```
+
+# Multiclass SVM Error:
+
+Report the overall test error by running **run_multiclass_svm_on_MNIST**
+
+**Error = 0.08189999999999997**
+
+# Multinomial (Softmax) Regression & Gradient Descent:
+
+Instead of building ten models, we can expand a single logistic regression model into a multinomial regression and solve it with similar gradient descent algorithm.
+
+The main function which you will call to run the code you will implement in this section is **run_softmax_on_MNIST** in **main.py** (already implemented). In the following steps, a number of the methods are described that are already implemented in **softmax.py** that will be useful.
+
+In order for the regression to work, you will need to implement three methods. Below we describe what the functions should do. Some test cases are included in **test.py** to help verify that the methods implemented are behaving sensibly.
+
+We will be working in the file **part1/softmax.py** in this problem:
+
+# Computing Probabilities for Softmax:
+
+Writing a function **compute_probabilities** that computes, for each data point x(i), the probability that x(i) is labeled as j for j=0,1,…,k−1.
+
+The softmax function **h** for a particular vector x requires computing:
+
+[Softmax](https://drive.google.com/file/d/1ZI90pcynLkunwJYa7mF-jylkbloXtBxe/view)
+
+
 
