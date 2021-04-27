@@ -63,8 +63,7 @@ To solve the linear regression problem, you recall the linear regression has a c
 
 ![alt text](https://github.com/hotaki-lab/Digit-Recognition-Neural-Network/blob/main/Linear%20Regression.JPG "Linear Regression")
 
-```python
- 
+```python 
 def closed_form(X, Y, lambda_factor):
 """
     Computes the closed form solution of linear regression with L2 regularization
@@ -89,3 +88,15 @@ def closed_form(X, Y, lambda_factor):
     return theta
     raise NotImplementedError
 ```
+
+# Test Error on Linear Regression:
+
+Apply the linear regression model on the test set. For classification purpose, you decide to round the predicted label into numbers 0-9.
+
+Note: For this project we will be looking at the error rate defined as the fraction of labels that don't match the target labels, also known as the "gold labels" or ground truth. (In other context, you might want to consider other performance measures such as precision and recall).
+
+The test error of the linear regression algorithm for different λ (the output from the main.py run).
+
+* **Error (λ = 1) = 0.7697**
+* **Error (λ = 0.1) = 0.7698**
+* **Error (λ = 0.01) = 0.7702**
