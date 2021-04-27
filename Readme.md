@@ -21,7 +21,7 @@ Note on software: For all the projects, we will use **python 3.6** augmented wit
 
 Download mnist.tar.gz and untar it into a working directory. Use the following Google Drive Link as well:
 
-![alt text](https://drive.google.com/drive/folders/16P4PsmlIqk6FUxFNwJXzLrShrLshf_qw?usp=sharing "Google Drive Containing MNIST folder for this Project")
+[Google Drive Containing MNIST folder for this Project](https://drive.google.com/drive/folders/16P4PsmlIqk6FUxFNwJXzLrShrLshf_qw?usp=sharing)
 
 The archive contains the various data files in the Dataset directory, along with the following python files:
 
