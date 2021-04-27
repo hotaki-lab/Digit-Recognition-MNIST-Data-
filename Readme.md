@@ -103,7 +103,11 @@ The test error of the linear regression algorithm for different λ (the output f
 
 # What went Wrong?
 
-**We found that no matter what λ factor we try, the test error is LARGE. With some thinking, we realize that something is wrong with this approach.**
-**The loss function related to the closed-form solution is inadequate for this problem.**
+* **We found that no matter what λ factor we try, the test error is LARGE.
+* **The loss function related to the closed-form solution is inadequate for this problem.**
+* **The closed form solution of linear regression is the solution of optimizing the mean squared error loss.**
+* **This is not an appropriate loss function for a classification problem.**
+
+
 
 
