@@ -103,11 +103,46 @@ The test error of the linear regression algorithm for different λ (the output f
 
 # What went Wrong?
 
-* **We found that no matter what λ factor we try, the test error is LARGE.
+* **We found that no matter what λ factor we try, the test error is LARGE.**
 * **The loss function related to the closed-form solution is inadequate for this problem.**
 * **The closed form solution of linear regression is the solution of optimizing the mean squared error loss.**
 * **This is not an appropriate loss function for a classification problem.**
 
+# Applying Support Vector Machine (SVM) Algorithm:
+
+It is found above that it is clearly not a regression problem, but a classification problem. We can change it into a binary classification and use the SVM to solve the problem. In order to do so, it is suggested that we build a **one vs. rest model** for every digit. For example, classifying the digits into two classes: 0 and not 0.
+
+Function **run_svm_one_vs_rest_on_MNIST** considers changing the labels of digits 1-9 to 1 and keeps the label 0 for digit 0. The **scikit-learn package** contains an SVM model that can be used directly.
+
+We will be working in the file **part1/svm.py** in this problem
+
+Important: For this problem, the **scikit-learn library** to be used. If you don't have it, install it using **pip install sklearn**
+
+# One vs. Rest SVM:
+
+Use the **sklearn** package and build the SVM model on your local machine. Use **random_state = 0, C=0.1** and default values for other parameters.
+
+```python
+import sklearn
+
+def one_vs_rest_svm(train_x, train_y, test_x):   
+"""
+    Trains a linear SVM for binary classifciation
+
+    Args:
+        train_x - (n, d) NumPy array (n datapoints each with d features)
+        train_y - (n, ) NumPy array containing the labels (0 or 1) for each training data point
+        test_x - (m, d) NumPy array (m datapoints each with d features)
+    Returns:
+        pred_test_y - (m,) NumPy array containing the labels (0 or 1) for each test data point
+"""
+    clf = sklearn.svm.LinearSVC(C=0.1 ,random_state=0)
+    clf.fit(train_x, train_y)
+    pred_test_y = clf.predict(test_x)
+    return pred_test_y
+    
+    raise NotImplementedError
+```
 
 
 
