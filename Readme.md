@@ -11,7 +11,7 @@ To see how these methods can be used to solve a real life problem, the famous di
 
 The MNIST database contains binary images of handwritten digits commonly used to train image processing systems. The digits were collected from among Census Bureau employees and high school students. The database contains 60,000 training digits and 10,000 testing digits, all of which have been size-normalized and centered in a fixed-size image of 28 × 28 pixels. Many methods have been tested with this dataset and in this project, you will get a chance to experiment with the task of classifying these images into the correct digit using some of the methods indicated above as Part - I of this project.
 
-![alt text](https://github.com/hotaki-lab/Digit-Recognition-Neural-Network/blob/main/Sample%20Digits.PNG "Sample Handwritten Digits")
+![alt text](https://github.com/hotaki-lab/Digit-Recognition-Neural-Network/blob/main/Sample_Digits.PNG "Sample Handwritten Digits")
 
 # Setup Details:
 
@@ -61,7 +61,7 @@ There is a skeleton code **run_linear_regression_on_MNIST in main.py**, but it n
 
 To solve the linear regression problem, you recall the linear regression has a closed form solution:
 
-![alt text](https://github.com/hotaki-lab/Digit-Recognition-Neural-Network/blob/main/Linear%20Regression.JPG "Linear Regression")
+![alt text](https://github.com/hotaki-lab/Digit-Recognition-Neural-Network/blob/main/Linear_Regression.JPG "Linear Regression")
 
 ```python 
 def closed_form(X, Y, lambda_factor):
@@ -205,7 +205,7 @@ Writing a function **compute_probabilities** that computes, for each data point 
 
 The softmax function **h** for a particular vector x requires computing:
 
-[Softmax](https://drive.google.com/file/d/1ZI90pcynLkunwJYa7mF-jylkbloXtBxe/view)
+![alt text](https://github.com/hotaki-lab/Digit-Recognition-Neural-Network/blob/main/Softmax.JPG "Linear Regression")
 
 
 
