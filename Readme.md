@@ -238,4 +238,44 @@ Write a function **compute_cost_function** that computes the total cost over eve
 
 The cost function J(θ) is given by: (Use natural log)
 
+![alt text](https://github.com/hotaki-lab/Digit-Recognition-Neural-Network/blob/main/cost.JPG "Cost Function")
 
+```
+def compute_cost_function(X, Y, theta, lambda_factor, temp_parameter):
+    """
+    Computes the total cost over every datapoint.
+
+    Args:
+        X - (n, d) NumPy array (n datapoints each with d features)
+        Y - (n, ) NumPy array containing the labels (a number from 0-9) for each
+            data point
+        theta - (k, d) NumPy array, where row j represents the parameters of our
+                model for label j
+        lambda_factor - the regularization constant (scalar)
+        temp_parameter - the temperature parameter of softmax function (scalar)
+
+    Returns
+        c - the cost value (scalar)
+    """
+
+    N = X.shape[0]
+    probabilities = compute_probabilities(X, theta, temp_parameter)
+    selected_probabilities = np.choose(Y, probabilities)
+    non_regulizing_cost = np.sum(np.log(selected_probabilities))
+    non_regulizing_cost *= -1 / N
+    regulizing_cost = np.sum(np.square(theta))
+    regulizing_cost *= lambda_factor / 2.0
+    return non_regulizing_cost + regulizing_cost
+    
+    raise NotImplementedError
+```
+
+# Gradient Descent:
+
+The function **run_gradient_descent_iteration** is necessary for the rest of the project.
+
+Now, in order to run the gradient descent algorithm to minimize the cost function, we need to take the derivative of J(θ) with respect to a particular θm. Notice that within J(θ), we have:
+
+![alt text](https://github.com/hotaki-lab/Digit-Recognition-Neural-Network/blob/main/GD.JPG "GD")
+
+![alt text](https://github.com/hotaki-lab/Digit-Recognition-Neural-Network/blob/main/GD1.JPG "GD")
