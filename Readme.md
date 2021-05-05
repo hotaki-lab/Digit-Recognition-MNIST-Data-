@@ -279,3 +279,100 @@ Now, in order to run the gradient descent algorithm to minimize the cost functio
 ![alt text](https://github.com/hotaki-lab/Digit-Recognition-Neural-Network/blob/main/GD.JPG "GD")
 
 ![alt text](https://github.com/hotaki-lab/Digit-Recognition-Neural-Network/blob/main/GD1.JPG "GD")
+
+Write a function **run_gradient_descent_iteration** that runs one step of the gradient descent algorithm.
+
+**Required Functions: NumPy python library as np, compute_probabilities which you previously implemented and scipy.sparse as sparse**
+
+You should use **sparse.coo_matrix** so that your function can handle larger matrices efficiently. The sparse matrix representation can handle sparse matrices efficiently.
+
+### Hint:
+This is how to use scipy's **sparse.coo_matrix** function to create a sparse matrix of 0's and 1's:
+
+M = sparse.coo_matrix(([1]*n, (Y, range(n))), shape=(k,n)).toarray()
+This will create a normal numpy array with 1s and 0s.
+
+On larger inputs (i.e., MNIST), this is 10x faster than using a naive for loop. (See example code if interested).
+
+Note: As a personal challenge, try to see if you can use special numpy functions to add 1 in-place. This would be even faster.
+
+```
+import time
+import numpy as np
+import scipy.sparse as sparse
+
+ITER = 100
+K = 10
+N = 10000
+
+def naive(indices, k):
+		mat = [[1 if i == j else 0 for j in range(k)] for i in indices]
+		return np.array(mat).T
+
+
+def with_sparse(indices, k):
+		n = len(indices)
+		M = sparse.coo_matrix(([1]*n, (Y, range(n))), shape=(k,n)).toarray()
+		return M
+
+
+Y = np.random.randint(0, K, size=N)
+
+t0 = time.time()
+for i in range(ITER):
+		naive(Y, K)
+print(time.time() - t0)
+
+
+t0 = time.time()
+for i in range(ITER):
+		with_sparse(Y, K)
+print(time.time() - t0)
+```
+
+**ACTUAL FUNCTION:**
+
+```
+def run_gradient_descent_iteration(X, Y, theta, alpha, lambda_factor, temp_parameter):
+    """
+    Runs one step of batch gradient descent
+
+    Args:
+        X - (n, d) NumPy array (n datapoints each with d features)
+        Y - (n, ) NumPy array containing the labels (a number from 0-9) for each
+            data point
+        theta - (k, d) NumPy array, where row j represents the parameters of our
+                model for label j
+        alpha - the learning rate (scalar)
+        lambda_factor - the regularization constant (scalar)
+        temp_parameter - the temperature parameter of softmax function (scalar)
+
+    Returns:
+        theta - (k, d) NumPy array that is the final value of parameters theta
+    """
+    #YOUR CODE HERE
+    
+    itemp=1./temp_parameter
+    num_examples = X.shape[0]
+    num_labels = theta.shape[0]
+    probabilities = compute_probabilities(X, theta, temp_parameter)
+    M = sparse.coo_matrix(([1]*num_examples, (Y,range(num_examples))), shape=(num_labels,num_examples)).toarray()
+    non_regularized_gradient = np.dot(M-probabilities, X)
+    non_regularized_gradient *= -itemp/num_examples
+    return theta - alpha * (non_regularized_gradient + lambda_factor * theta)
+    
+    raise NotImplementedError
+```
+
+# Test Results:
+
+## Test Error on Softmax Regression:
+
+Finally, report the final test error by running the main.py file, using the temperature parameter τ=1. If you have implemented everything correctly, the error on the test set should be around 0.1, which implies the linear softmax regression model is able to recognize MNIST digits with around 90 percent accuracy.
+
+Note: For this project we will be looking at the error rate defined as the fraction of labels that don't match the target labels, also known as the "gold labels" or ground truth. (In other contexts, you might want to consider other performance measures such as precision and recall, which we have not discussed in this class.
+
+Please check the test error of your Softmax algorithm (output from the main.py run):
+
+**TEST ERROR = 0.10050000000000003***
+
