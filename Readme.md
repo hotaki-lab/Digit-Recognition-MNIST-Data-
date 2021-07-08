@@ -374,5 +374,5 @@ Note: For this project we will be looking at the error rate defined as the fract
 
 Please check the test error of your Softmax algorithm (output from the main.py run):
 
-**TEST ERROR = 0.10050000000000003**
+**TEST ERROR = 0.10050000000000003 = 10.05%**
 
